@@ -12,6 +12,9 @@ import {WebService} from './web.service';
         <md-input-container>
             <textarea mdInput placeholder="Message"></textarea>
         </md-input-container>
+        <md-card-actions>
+            <button md-button color="primary">post</button>
+        </md-card-actions>
         </md-card-content>
     </md-card>
     `
