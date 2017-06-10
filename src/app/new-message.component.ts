@@ -7,13 +7,13 @@ import {WebService} from './web.service';
     <md-card class="card">
         <md-card-content>
         <md-input-container>
-            <input mdInput placeholder="Name">
+            <input [(ngModel)]="message.owner" mdInput placeholder="Name">
         </md-input-container>
         <md-input-container>
-            <textarea mdInput placeholder="Message"></textarea>
+            <textarea [(ngModel)]="message.text" mdInput placeholder="Message"></textarea>
         </md-input-container>
         <md-card-actions>
-            <button md-button color="primary">post</button>
+            <button (click)="post()" md-button color="primary">post</button>
         </md-card-actions>
         </md-card-content>
     </md-card>
@@ -23,5 +23,12 @@ import {WebService} from './web.service';
 export class NewMessageComponent{
 
     constructor(private webService: WebService){}
+    message ={
+        owne:"ke",
+        text:"123"
+    }
+    post(){
+        console.log(this.message);
+    }
 
 }
