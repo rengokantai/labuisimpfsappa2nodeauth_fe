@@ -21,7 +21,7 @@ import {WebService} from './web.service';
 })
 
 export class NewMessageComponent{
-    @Output() onPosted = new EventEmitter()
+
     constructor(private webService: WebService){}
     message ={
         owner:"ke",
@@ -29,7 +29,7 @@ export class NewMessageComponent{
     }
     post(){
         this.webService.postMessage(this.message);
-        this.onPosted.emit(this.message);
+     
     }
 
 }
