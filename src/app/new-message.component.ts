@@ -24,11 +24,11 @@ export class NewMessageComponent{
 
     constructor(private webService: WebService){}
     message ={
-        owne:"ke",
+        owner:"ke",
         text:"123"
     }
     post(){
-        console.log(this.message);
+        this.webService.postMessage(this.message)
     }
 
 }
