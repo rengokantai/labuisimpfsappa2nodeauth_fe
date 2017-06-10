@@ -1,4 +1,5 @@
 import { NgModule }      from '@angular/core';
+import {RouterModule} from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import {MaterialModule} from '@angular/material';
 import { MessagesComponent} from './messages.component';
@@ -10,8 +11,10 @@ import { WebService} from './web.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 
+var routes =[];
+
 @NgModule({
-  imports:      [ BrowserAnimationsModule,BrowserModule,MaterialModule,HttpModule,FormsModule ],
+  imports:      [ BrowserAnimationsModule,BrowserModule,MaterialModule,HttpModule,FormsModule,RouterModule.forRoot(routes) ],
   declarations: [ AppComponent,MessagesComponent,NewMessageComponent,NavComponent ],
   bootstrap:    [ AppComponent ],
   providers: [WebService]
