@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { MessagesComponent} from './messages.component';
 import { NewMessageComponent} from './new-message.component';
 @Component({
@@ -6,7 +6,9 @@ import { NewMessageComponent} from './new-message.component';
   template: `<h1>Message board</h1><new-message (onPosted)="onPosted($event)"></new-message> <messages></messages>`,
 })
 export class AppComponent  { 
+  @ViewChild(MessagesComponent) messages :MessagesComponent;
   onPosted(message){
-    console.log(message)
+    //console.log(message)
+    this.messages.push(message)
   }
 }
