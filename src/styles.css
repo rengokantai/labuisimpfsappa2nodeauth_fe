@@ -8,3 +8,7 @@ h1 {
 body{
   background: #eeeeee;
 }
+
+.card{
+  margin: 8px;
+}
