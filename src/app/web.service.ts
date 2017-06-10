@@ -15,13 +15,21 @@ export class WebService{
             var response = await this.http.get(this.BASE_URL+'/messages').toPromise();
             this.messages = response.json();
         } catch (error) {
-            console.error("err")
-            this.sb.open("err",'close',{duration:1000})
+            this.handleError("get error");
         }
 
     }
     async postMessage(message){
-        var response =  await this.http.post(this.BASE_URL+'/messages',message).toPromise();
-        this.messages.push(response.json());
+        try {
+            var response =  await this.http.post(this.BASE_URL+'/messages',message).toPromise();
+            this.messages.push(response.json());
+        } catch (error) {
+            this.handleError("post error");
+        }
+        
+    }
+    private handleError(error){
+        console.error(error)
+        this.sb.open(error,'close',{duration:1000})
     }
 }
