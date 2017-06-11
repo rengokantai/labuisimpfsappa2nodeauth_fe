@@ -19,7 +19,7 @@ var routes =[{
   path:'messages',
   component:MessagesComponent
 },{
-  path:'messages/:namel',
+  path:'messages/:name',
   component:MessagesComponent
 }];
 
