@@ -7,9 +7,11 @@ import {MdSnackBar} from '@angular/material';
 @Injectable()
 export class WebService{
     BASE_URL = 'http://localhost:60000/api';
-    private messages=[];
+    private messageStore=[];
 
-    messageSubject = new Subject();
+    private messageSubject = new Subject();
+
+    messages = this.messageSubject.asObservable();
 
     constructor(private http:Http,private sb:MdSnackBar){
         this.getMessages();
