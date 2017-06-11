@@ -15,6 +15,9 @@ import {FormsModule} from '@angular/forms';
 var routes =[{
   path:'',
   component:HomeComponent
+},{
+  path:'messages',
+  component:MessagesComponent
 }];
 
 @NgModule({

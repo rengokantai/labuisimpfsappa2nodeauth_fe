@@ -4,7 +4,8 @@ import {WebService} from './web.service';
 @Component({
     selector:'nav',
     template: `<md-toolbar color="primary">
-    Message board
+    <button md-button routerLink="/">Messgesboard</button>
+    <button md-button routerLink="/messages">Messges</button>
     </md-toolbar>`
 })
 
