@@ -18,6 +18,9 @@ var routes =[{
 },{
   path:'messages',
   component:MessagesComponent
+},{
+  path:'messages/:namel',
+  component:MessagesComponent
 }];
 
 @NgModule({

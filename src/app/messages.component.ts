@@ -4,7 +4,7 @@ import {WebService} from './web.service';
 @Component({
     selector:'messages',
     template: `<div *ngFor="let message of webService.messages">
-    <md-card class="card"><md-card-title>{{message.owner}}</md-card-title>
+    <md-card class="card"><md-card-title [routerLink]="['/messages',message.owner]" style="cursor:pointer">{{message.owner}}</md-card-title>
     <md-card-content>{{message.text}}</md-card-content></md-card>`
 })
 
