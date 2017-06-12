@@ -16,24 +16,25 @@ export class WebService{
     constructor(private http:Http,private sb:MdSnackBar){
         this.getMessages();
     }
-    async getMessages(user){
-        try {
+    getMessages(user){
+       
             user = (user)? '/'+user:'';
             //var response = await this.http.get(this.BASE_URL+'/messages'+user).toPromise();
             //this.messages = response.json();
             this.http.get(this.BASE_URL+'/messages'+user).subscribe(response=>{
-                this.messages = response.json();
-                this.messageSubject.next(this.messages);
+                this.messageStore = response.json();
+                this.messageSubject.next(this.messageStore);
             },error=>{
                 this.handleError("error")
             })
         } 
 
-    }
+    
     async postMessage(message){
         try {
             var response =  await this.http.post(this.BASE_URL+'/messages',message).toPromise();
-            this.messages.push(response.json());
+            this.messageStore.push(response.json());
+            this.messageSubject.next(this.messageStore);
         } catch (error) {
             this.handleError("post error");
         }
